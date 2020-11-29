@@ -19,4 +19,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/user', 'UserController@index');
 
-
+Route::resource('posts', 'PostController');

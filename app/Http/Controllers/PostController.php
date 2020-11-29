@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\WaveRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
