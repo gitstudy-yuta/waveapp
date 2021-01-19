@@ -28,7 +28,7 @@ class LoginController extends Controller
      * @var string
      */
     // ログインした後にリダイレクトする場所
-    protected $redirectTo = '/posts/create';
+    protected $redirectTo = '/post';
 
     /**
      * Create a new controller instance.
@@ -46,6 +46,6 @@ class LoginController extends Controller
         $request->session()->flush();
         $request->session()->regenerate();
 
-        return redirect('/logout');
+        return redirect('/post');
     }
 }

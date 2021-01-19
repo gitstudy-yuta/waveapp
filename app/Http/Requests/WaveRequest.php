@@ -13,7 +13,7 @@ class WaveRequest extends FormRequest
      */
     public function authorize()
     {
-        if ($this->path() == 'posts'){
+        if ($this->path() == 'post'){
             return true;
         }else{
             return false;
@@ -30,11 +30,11 @@ class WaveRequest extends FormRequest
     {
         return [
             'point_name' => 'required',
-            'point_area' => 'required',
-            'wave_score' => 'required|integer',
-            'wind_description' => 'required',
-            'weather' => 'required',
-            'poeple_amount' => 'required|integer',
+            'point_area' => 'required|not_in: 0',
+            'wave_score' => 'required|integer|not_in: 123',
+            'wind_description' => 'required|not_in: 0',
+            'weather' => 'required|not_in: 0',
+            'poeple_amount' => 'required|integer|not_in: 99',
             'comment' => 'required',
         ];
     }
@@ -42,11 +42,12 @@ class WaveRequest extends FormRequest
     public function messages(){
         return [
             'point_name.required' => 'ポイント名を入力してください。',
-            'point_area.required' => 'ポイントエリアを入力してください。',
-            'wave_score.required' => '波の点数を入力してください。',
-            'wind_description.required' => '風向きを入力してください。',
-            'weather.required' => '天気状況を入力してください。',
-            'poeple_amount.required' => '人数を入力してください。',
+            // 'point_area.required' => 'ポイントエリアを入力してください。',
+            'point_area.not_in' => 'ポイントエリアを入力してください。',
+            'wave_score.not_in' => '波の点数を入力してください。',
+            'wind_description.not_in' => '風向きを入力してください。',
+            'weather.not_in' => '天気状況を入力してください。',
+            'poeple_amount.not_in' => '人数を入力してください。',
             'comment.required' => 'コメントを入力してください。',
 
         ];
